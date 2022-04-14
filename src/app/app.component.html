@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Bind it!</h3>
+      <ol>
+        <li>3 componenti: GameControl, Dispari, Pari</li>
+        <li>GameControl avrà buttons start e stop</li>
+        <li>quando premi start un evento sarà eseguito ogni secondo, tenendo un contatore</li>
+        <li>premendo stop si ferma il timer e si resetta il contatore</li>
+        <li>un componente dispari verrà visualizzato ogni numero disapri</li>
+        <li>un componente pari verrà visualizzato ogni numero pari</li>
+      </ol>
+    </div>
+  </div>
+  
+  <div class="row"></div>
+    <div class="col-xs-12">
+      <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control> <!-- $event permette di accedere ai dati dell'evento -->
+  </div>
+
+  <div class="row"></div>
+    <div class="col-xs-12">
+      <app-dispari *ngFor="let n of numeriDispari" [numDispari]="n"></app-dispari> <!-- voglio vedere i numeri scorrere come nella console -->
+  </div>
+
+  <div class="row"></div>
+    <div class="col-xs-12">
+      <app-pari *ngFor="let n of numeriPari" [numPari]="n"></app-pari> <!-- voglio vedere i numeri scorrere come nella console -->
+  </div>
+
+</div>
