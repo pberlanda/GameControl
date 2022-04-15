@@ -10,20 +10,27 @@ export class GameControlComponent implements OnInit {
   interval;
   lastNumber: number = 0;
 
+  btnStartDisabled: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.btnStartDisabled = false;
   }
 
   onStartGame() {
     this.interval = setInterval(()=>{this.intervalFired.emit(this.lastNumber + 1); this.lastNumber++}, 1000)
     console.log('start game ci siamo');
+
+    this.btnStartDisabled=true;
   }
 
   onPauseGame() {
     clearInterval(this.interval);
     // this.lastNumber = 0; // test azzeramento ultimo numero per vedere ripartire da 1 il timer
     console.log('pause game ci siamo');
+
+    this.btnStartDisabled=false;
   }
 
   actionMethod(event: any) {
