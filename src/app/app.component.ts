@@ -11,13 +11,13 @@ export class AppComponent  {
   numeriDispari: number[] = []; // significa che creo un array di numero inizializzato vuoto ( = [] )
   numeriPari: number[] = [];
 
-  onIntervalFired(firedNumebr: number) {
-    //console.log('evento intercettato ' + firedNumebr)
+  onIntervalFired(firedNumber: number) {
+    console.log('evento intercettato ' + firedNumber)
 
-    if (firedNumebr % 2 === 0) {
-      this.numeriPari.push(firedNumebr);
+    if (firedNumber % 2 === 0) {
+      this.numeriPari.push(firedNumber);
     } else {
-      this.numeriDispari.push(firedNumebr);
+      this.numeriDispari.push(firedNumber);
     }
 
   }

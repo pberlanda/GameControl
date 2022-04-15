@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PariComponent implements OnInit {
 
-  @Input() numPari: number;
+  @Input() numPari: number = 0;
 
   constructor() { }
 
