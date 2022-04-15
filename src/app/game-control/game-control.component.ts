@@ -10,14 +10,16 @@ export class GameControlComponent implements OnInit {
   interval;
   lastNumber: number = 0;
 
-  // flag che indica se btn start deve essere disattivato
+  // flag che indica se btn deve essere disattivato
   btnStartDisabled: boolean;
+  btnStopDisabled: boolean;
 
   constructor() { }
 
   ngOnInit() {
     // all'avvio dell'app Start deve essere attivo
     this.btnStartDisabled = false;
+    this.btnStopDisabled = true;
   }
 
   onStartGame() {
@@ -26,6 +28,9 @@ export class GameControlComponent implements OnInit {
 
     // Disattiva il button Start
     this.btnStartDisabled=true;
+
+    // Attiva il button Stop
+    this.btnStopDisabled = false;
   }
 
   onPauseGame() {
@@ -37,6 +42,9 @@ export class GameControlComponent implements OnInit {
 
     // attiva il button Start
     this.btnStartDisabled=false;
+
+    // Disattiva il button Stop
+    this.btnStopDisabled=true
   }
 
   actionMethod(event: any) {
