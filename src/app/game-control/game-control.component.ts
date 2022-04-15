@@ -26,4 +26,8 @@ export class GameControlComponent implements OnInit {
     console.log('pause game ci siamo');
   }
 
+  actionMethod(event: any) {
+    event.target.disabled=true;
+  }
+
 }

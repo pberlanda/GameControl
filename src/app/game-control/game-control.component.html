@@ -1,2 +1,2 @@
-<button class="btn btn-success" (click)="onStartGame()">Start</button>
-<button class="btn btn-warning" (click)="onPauseGame()">Stop</button>
+<button id="startBtn" class="btn btn-success" (click)="onStartGame(); actionMethod($event)">Start</button>
+<button id="stopBtn" class="btn btn-warning" (click)="onPauseGame()">Stop</button>
