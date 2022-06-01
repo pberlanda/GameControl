@@ -6,7 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  @Output() intervalFired = new EventEmitter<number>(); // l'evento può essere intercettato dall'esterni del componente
+  @Output() intervalFired = new EventEmitter<number>(); // l'evento può essere intercettato dall'esterno del componente grazie al decorator @Output()
   interval;
   lastNumber: number = 0;
 
@@ -23,7 +23,11 @@ export class GameControlComponent implements OnInit {
   }
 
   onStartGame() {
-    this.interval = setInterval(()=>{this.intervalFired.emit(this.lastNumber + 1); this.lastNumber++}, 1000)
+    this.interval = setInterval(()=>{
+      this.intervalFired.emit(this.lastNumber + 1); 
+      this.lastNumber++
+    }, 1000)
+
     console.log('start game ci siamo');
 
     // Disattiva il button Start
@@ -34,6 +38,7 @@ export class GameControlComponent implements OnInit {
   }
 
   onPauseGame() {
+    // per interrompere il timer la funzione deve sapere quale timer, che viene passato come argomento (infatti è stato creato come propoerty globale su in cima)
     clearInterval(this.interval);
 
     // test azzeramento ultimo numero per vedere ripartire da 1 il timer
